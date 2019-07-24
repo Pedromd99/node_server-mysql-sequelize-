@@ -1,0 +1,33 @@
+extends layout
+
+block content
+  h1= title
+  p Welcome to #{title} #{nome}
+  //pre #{nome[0].nombre}
+  //- - console.log(nome[0].nombre)
+  
+  //- - var i = 0;
+  //- while (i > 0) 
+  //- p= nome[++i].nombre
+
+  //- -for (;nome[i].nombre;){
+  //-   nome += nome[i].nombre;
+  //-   i++;
+  //- }
+
+  - for (var i = 0; i < nome.length; i++)
+    form(action="/" + nome[i].product_id)
+      li #{nome[i].nombre} 
+      ul
+        button.btn.btn-primary(type='submit' id='borrar') borrar
+
+
+
+  //- - var nombre = ('nuevop')
+  //-   #nuevop
+  //-   nuevop.focus()
+
+  h2 Nuevo
+  form(action="/new" method="POST")
+    input(type="text" name="nuevop" id="nombre" lavel="nuevop")
+    button(type='submit') Añadir
